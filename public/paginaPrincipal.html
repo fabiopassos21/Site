@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        body {
+            background-image: url(1.png);
+        }
+    </style>
+    <title>Página Principal</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <img src="Design sem nome (3).png"  width="50px" height="50px">
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu is-active">
+                <div class="navbar-start">
+                    <a href=" " class="navbar-item">Início</a>
+                    <a href="#" class="navbar-item" id="giftsLink">Lista de Presentes</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-7by3">
+                                <img src="271a6089-9747-4e65-8b1e-554456ba9799.jpg" alt="Imagem de Capa">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-3">Fabio & Leticia</p>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <p><i class="fas fa-cross" aria-hidden="true"></i> "Até aqui o Senhor nos ajudou", 1 Samuel 7:12 <a href="#">#Casamento</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-9">
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">Sejam Bem-Vindos</p>
+                            <button class="card-header-icon" aria-label="more options">
+                                <span class="fas fa-star"></span>
+                            </button>
+                        </header>
+                        <div class="card-content">
+                            <div class="content" id="welcomeMessage">
+                                <!-- Aqui será inserido dinamicamente o nome de usuário -->
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">Últimos Avisos</p>
+                            <button class="card-header-icon" aria-label="more options">
+                                <span class="fas fa-warning"></span>
+                            </button>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                Teste
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">Agradecimentos</p>
+                            <button class="card-header-icon" aria-label="more options">
+                                <span class="fas fa-cross"></span>
+                            </button>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <div class="column is-14">
+                                    Agradecemos primeiramente a Deus por suas ricas bênçãos em nossas vidas. A Niltson e Creusa (pais da noiva) por terem tornado essa cerimônia possível nos ajudando ricamente com toda a festa, a Ludy e família (melhor amiga da noiva) por ter ajudado nos preparativos de toda a festa.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const username = urlParams.get('username');
+
+            // Armazena o nome de usuário em uma variável global
+            window.globalUsername = username;
+
+            // Verifica se o nome de usuário está presente e atualiza dinamicamente a mensagem de boas-vindas
+            if (username) {
+                const welcomeMessage = document.getElementById('welcomeMessage');
+                welcomeMessage.innerHTML = `<p><strong>Bem-vindo(a), ${username}!</strong></p>`;
+                
+                // Atualiza o link para a lista de presentes com o nome do usuário
+                const giftsLink = document.getElementById('giftsLink');
+                giftsLink.href = `/gifts.html?username=${encodeURIComponent(username)}`;
+            }
+        });
+    </script>
+</body>
+</html>

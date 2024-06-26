@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Lista de Presentes</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+        }
+        .present-box {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+        }
+        .present-box img {
+            max-width: 64px;
+            margin-right: 20px;
+        }
+        .checkbox {
+            margin-left: auto;
+        }
+        .checkbox.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <section class="section">
+            <div class="container">
+                <h1 class="title">Lista de Presentes</h1>
+                <p id="userGreeting">Lista de Presentes de: <%= username %></p>
+                <form id="giftsForm" action="/save-gifts" method="POST">
+                    
+                    <!-- Presente 1 -->
+                    <div class="present-box" id="present1">
+                        <div class="media-left">
+                            <figure class="image is-64x64">
+                                <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 1">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content" id="present1-description">
+                                <p><strong>Presente 1</strong> <small>Marca X</small></p>
+                                <p>Descrição do Presente 1.</p>
+                            </div>
+                            <label class="checkbox">
+                                <input type="checkbox" name="gifts" value="1" id="gift1">
+                                <span>Selecionar este presente</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Presente 2 -->
+                    <div class="present-box" id="present2">
+                        <div class="media-left">
+                            <figure class="image is-64x64">
+                                <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 2">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content" id="present2-description">
+                                <p><strong>Presente 2</strong> <small>Marca Y</small></p>
+                                <p>Descrição do Presente 2.</p>
+                            </div>
+                            <label class="checkbox">
+                                <input type="checkbox" name="gifts" value="2" id="gift2">
+                                <span>Selecionar este presente</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Presente 3 -->
+                    <div class="present-box" id="present3">
+                        <div class="media-left">
+                            <figure class="image is-64x64">
+                                <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 3">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content" id="present3-description">
+                                <p><strong>Presente 3</strong> <small>Marca Z</small></p>
+                                <p>Descrição do Presente 3.</p>
+                            </div>
+                            <label class="checkbox">
+                                <input type="checkbox" name="gifts" value="3" id="gift3">
+                                <span>Selecionar este presente</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Presente 4 -->
+                    <div class="present-box" id="present4">
+                        <div class="media-left">
+                            <figure class="image is-64x64">
+                                <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 4">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content" id="present4-description">
+                                <p><strong>Presente 4</strong> <small>Marca A</small></p>
+                                <p>Descrição do Presente 4.</p>
+                            </div>
+                            <label class="checkbox">
+                                <input type="checkbox" name="gifts" value="4" id="gift4">
+                                <span>Selecionar este presente</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Presente 5 -->
+                    <div class="present-box" id="present5">
+                        <div class="media-left">
+                            <figure class="image is-64x64">
+                                <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 5">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content" id="present5-description">
+                                <p><strong>Presente 5</strong> <small>Marca B</small></p>
+                                <p>Descrição do Presente 5.</p>
+                            </div>
+                            <label class="checkbox">
+                                <input type="checkbox" name="gifts" value="5" id="gift5">
+                                <span>Selecionar este presente</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-primary" type="submit">Salvar</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-danger" type="button" id="clearSelection">Limpar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Exibe o nome de usuário recuperado da sessão
+            const username = '<%= username %>';
+            document.getElementById('userGreeting').textContent = `Lista de Presentes de: ${username}`;
+
+            // Função para buscar os presentes já selecionados
+            let presentsByUser = localStorage.getItem('selectedGiftsByUser');
+            presentsByUser = presentsByUser ? JSON.parse(presentsByUser) : [];
+
+            // Atualiza checkboxes conforme os presentes selecionados
+            presentsByUser.forEach(id => {
+                const checkbox = document.getElementById(`gift${id}`);
+                if (checkbox) {
+                    checkbox.checked = true;
+                    checkbox.disabled = true;
+                    checkbox.parentNode.classList.add('present-box-disabled');
+                    const descriptionDiv = document.getElementById(`present${id}-description`);
+                    if (descriptionDiv) {
+                        descriptionDiv.innerHTML += ` <small>(Selecionado por ${username})</small>`;
+                    }
+                }
+            });
+
+            // Event listener para checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    const presentId = parseInt(this.value);
+                    if (this.checked) {
+                        presentsByUser.push(presentId);
+                    } else {
+                        const index = presentsByUser.indexOf(presentId);
+                        if (index !== -1) {
+                            presentsByUser.splice(index, 1);
+                        }
+                    }
+                    localStorage.setItem('selectedGiftsByUser', JSON.stringify(presentsByUser));
+
+                    // Atualiza descrição do presente com o nome do usuário
+                    const descriptionDiv = document.getElementById(`present${presentId}-description`);
+                    if (descriptionDiv) {
+                        descriptionDiv.innerHTML = `<p><strong>Presente ${presentId}</strong> <small>Marca ${getMarca(presentId)}</small></p>
+                                                    <p>Descrição do Presente ${presentId}. <small>(Selecionado por ${username})</small></p>`;
+                    }
+                });
+            });
+
+            // Função para obter a marca do presente
+            function getMarca(presentId) {
+                const marcas = {
+                    1: 'X',
+                    2: 'Y',
+                    3: 'Z',
+                    4: 'A',
+                    5: 'B'
+                };
+                return marcas[presentId] || '';
+            }
+
+            // Event listener para o botão de limpar seleção
+            const clearButton = document.getElementById('clearSelection');
+            clearButton.addEventListener('click', function () {
+                // Limpa seleções e atualiza checkboxes
+                presentsByUser = [];
+                localStorage.removeItem('selectedGiftsByUser');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                    checkbox.disabled = false;
+                    checkbox.parentNode.classList.remove('present-box-disabled');
+                    const presentId = parseInt(checkbox.value);
+                    const descriptionDiv = document.getElementById(`present${presentId}-description`);
+                    if (descriptionDiv) {
+                        descriptionDiv.innerHTML = `<p><strong>Presente ${presentId}</strong> <small>Marca ${getMarca(presentId)}</small></p>
+                                                    <p>Descrição do Presente ${presentId}.</p>`;
+                    }
+                });
+            });
+        });
+        
+    </script>
+</body>
+</html>
