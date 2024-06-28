@@ -1,13 +1,19 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('./database'); // Configuração do banco de dados SQLite
 const path = require('path');
 const session = require('express-session');
+const axios = require('axios');
+const sqlite3 = require('sqlite3').verbose();
+const db = require('./database'); // Importa o arquivo do banco de dados SQLite
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const apiKey = '$2a$10$zjWMTphrbmGC0S8D0Gav1.dYqSvPc/GiJ3O5.XJAy/kE7JQBB7pW6';
+const binId = '667db440ad19ca34f87fc213';
+
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     secret: 'secret-key',
@@ -32,14 +38,18 @@ app.get('/', (req, res) => {
 // Endpoint para validação de login
 app.post('/login', (req, res) => {
     const { username } = req.body;
-    db.get("SELECT * FROM users WHERE name = ?", [username], (err, row) => {
+
+    // Consulta ao banco de dados para verificar o usuário
+    db.get('SELECT * FROM users WHERE name = ?', [username], (err, row) => {
         if (err) {
-            res.status(500).send('Erro no servidor');
+            console.error('Erro ao buscar usuário:', err);
+            res.status(500).send('Erro ao autenticar');
         } else if (row) {
-            req.session.user = row;
-            // Redireciona para a página principal com o nome de usuário na query string
+            // Usuário encontrado, define na sessão e redireciona
+            req.session.user = { name: username };
             res.redirect(`/paginaPrincipal.html?username=${encodeURIComponent(username)}`);
         } else {
+            // Usuário não encontrado
             res.status(401).send('Credenciais inválidas');
         }
     });
@@ -50,47 +60,70 @@ app.get('/paginaPrincipal.html', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'paginaPrincipal.html'));
 });
 
-// Rota para a página de lista de presentes
+// Rota para a página de lista de presentes (gifts.html)
 app.get('/gifts.html', checkAuth, (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'gifts.html'));
 });
 
-// Endpoint para salvar presentes selecionados
-app.post('/save-gifts', checkAuth, async (req, res) => {
-    const userId = req.session.user.id;
-    const selectedGifts = Array.isArray(req.body.gifts) ? req.body.gifts.map(Number) : [parseInt(req.body.gifts)];
+// Endpoint para salvar seleções de checkboxes
+app.post('/save-selections', (req, res) => {
+    const selections = req.body;
 
-    if (!selectedGifts.length) {
-        return res.status(400).send('Nenhum presente selecionado');
-    }
+    axios.put(`https://api.jsonbin.io/v3/b/${binId}`, selections, {
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Master-Key': apiKey
+        }
+    })
+    .then(response => {
+        res.send('Seleções salvas com sucesso!');
+    })
+    .catch(error => {
+        console.error('Erro ao salvar seleções:', error);
+        res.status(500).send('Erro ao salvar seleções');
+    });
+});
+
+// Endpoint para limpar seleções de checkboxes
+app.post('/clear-selections', checkAuth, async (req, res) => {
+    const username = req.session.user.name;
+    const selections = {
+        presente1: false,
+        presente2: false,
+        presente3: false,
+        presente4: false
+        // Adicione mais presentes conforme necessário
+    };
 
     try {
-        const stmt = db.prepare("INSERT INTO gifts (user_id, gift_id) VALUES (?, ?)");
-        selectedGifts.forEach(giftId => {
-            stmt.run(userId, giftId);
+        // Salvar as seleções no JSONBin
+        await axios.put(binId, selections, {
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Master-Key': apiKey
+            }
         });
-        stmt.finalize();
 
-        // Desabilita os presentes selecionados
-        await db.run("UPDATE gifts SET disabled = 1 WHERE user_id = ? AND gift_id IN (" + selectedGifts.join(',') + ")", [userId]);
-
-        res.redirect('/gifts.html');
+        res.send('Seleções limpas com sucesso!');
     } catch (error) {
-        console.error('Erro ao salvar presentes:', error.message);
-        res.status(500).send('Erro ao salvar presentes');
+        console.error('Erro ao limpar seleções:', error.message);
+        res.status(500).send('Erro ao limpar seleções');
     }
 });
 
-// Endpoint para obter presentes já selecionados
-app.get('/get-selected-gifts', checkAuth, (req, res) => {
-    const userId = req.session.user.id;
-    db.all("SELECT gift_id FROM gifts WHERE user_id = ? AND disabled = 1", [userId], (err, rows) => {
-        if (err) {
-            res.status(500).send('Erro ao obter presentes selecionados');
-        } else {
-            const selectedGifts = rows.map(row => row.gift_id);
-            res.json(selectedGifts);
+// Endpoint para obter seleções de checkboxes
+app.get('/get-selections', (req, res) => {
+    axios.get(`https://api.jsonbin.io/v3/b/${binId}/latest`, {
+        headers: {
+            'X-Master-Key': apiKey
         }
+    })
+    .then(response => {
+        res.json(response.data.record);
+    })
+    .catch(error => {
+        console.error('Erro ao recuperar seleções:', error);
+        res.status(500).send('Erro ao recuperar seleções');
     });
 });
 
