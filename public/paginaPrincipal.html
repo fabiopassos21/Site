@@ -7,7 +7,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         body {
-            background-image: url(1.png);
+            background: linear-gradient(135deg, #FBFADA, #ADBC9F, #ADBC9F, #FBFADA);
+ 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .navbar-start {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-item.button {
+            margin-right: 1rem;
         }
     </style>
     <title>Página Principal</title>
@@ -15,14 +32,15 @@
 <body>
     <header>
         <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <img src="Design sem nome (3).png"  width="50px" height="50px">
-            </div>
+       
+             
+       
 
             <div id="navbarBasicExample" class="navbar-menu is-active">
                 <div class="navbar-start">
-                    <a href=" " class="navbar-item">Início</a>
-                    <a href="#" class="navbar-item" id="giftsLink">Lista de Presentes</a>
+                    <img src="logo.png" width="100px" height="100px">
+                    <a href=" " class="navbar-item button is-primary is-light">Início</a>
+                    <a href="#" class="navbar-item button is-link is-light" id="giftsLink">Lista de Presentes</a>
                 </div>
             </div>
         </nav>

@@ -6,6 +6,9 @@
     <title>Lista de Presentes</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <style>
+        body{
+            background: linear-gradient(135deg, #FBFADA, #ADBC9F, #ADBC9F, #FBFADA);
+        }
         .present-box {
             margin-bottom: 20px;
             padding: 10px;
@@ -26,12 +29,17 @@
             opacity: 0.5;
             pointer-events: none;
         }
+        .selected-by-others {
+        color: red; /* Cor vermelha para texto já selecionado */
+        font-weight: bold; /* Opcional: torna o texto em negrito */
+    }
     </style>
 </head>
 <body>
     <div class="container">
         <h2 class="title">Selecione os presentes:</h2>
 
+        <!-- Presente 1 -->
         <div class="present-box" id="present1">
             <div class="media-left">
                 <figure class="image is-64x64">
@@ -50,6 +58,7 @@
             </div>
         </div>
 
+        <!-- Presente 2 -->
         <div class="present-box" id="present2">
             <div class="media-left">
                 <figure class="image is-64x64">
@@ -68,6 +77,7 @@
             </div>
         </div>
 
+        <!-- Presente 3 -->
         <div class="present-box" id="present3">
             <div class="media-left">
                 <figure class="image is-64x64">
@@ -86,6 +96,7 @@
             </div>
         </div>
 
+        <!-- Presente 4 -->
         <div class="present-box" id="present4">
             <div class="media-left">
                 <figure class="image is-64x64">
@@ -104,6 +115,120 @@
             </div>
         </div>
 
+        <!-- Presente 5 -->
+        <div class="present-box" id="present5">
+            <div class="media-left">
+                <figure class="image is-64x64">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 5">
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content" id="present5-description">
+                    <p><strong>Presente 5</strong> <small>Marca E</small></p>
+                    <p>Descrição do Presente 5.</p>
+                </div>
+                <label class="checkbox">
+                    <input type="checkbox" name="gifts" value="5" id="presente5">
+                    <span>Selecionar este presente</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Presente 6 -->
+        <div class="present-box" id="present6">
+            <div class="media-left">
+                <figure class="image is-64x64">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 6">
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content" id="present6-description">
+                    <p><strong>Presente 6</strong> <small>Marca F</small></p>
+                    <p>Descrição do Presente 6.</p>
+                </div>
+                <label class="checkbox">
+                    <input type="checkbox" name="gifts" value="6" id="presente6">
+                    <span>Selecionar este presente</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Presente 7 -->
+        <div class="present-box" id="present7">
+            <div class="media-left">
+                <figure class="image is-64x64">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 7">
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content" id="present7-description">
+                    <p><strong>Presente 7</strong> <small>Marca G</small></p>
+                    <p>Descrição do Presente 7.</p>
+                </div>
+                <label class="checkbox">
+                    <input type="checkbox" name="gifts" value="7" id="presente7">
+                    <span>Selecionar este presente</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Presente 8 -->
+        <div class="present-box" id="present8">
+            <div class="media-left">
+                <figure class="image is-64x64">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 8">
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content" id="present8-description">
+                    <p><strong>Presente 8</strong> <small>Marca H</small></p>
+                    <p>Descrição do Presente 8.</p>
+                </div>
+                <label class="checkbox">
+                    <input type="checkbox" name="gifts" value="8" id="presente8">
+                    <span>Selecionar este presente</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Presente 9 -->
+        <div class="present-box" id="present9">
+            <div class="media-left">
+                <figure class="image is-64x64">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 9">
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content" id="present9-description">
+                    <p><strong>Presente 9</strong> <small>Marca I</small></p>
+                    <p>Descrição do Presente 9.</p>
+                </div>
+                <label class="checkbox">
+                    <input type="checkbox" name="gifts" value="9" id="presente9">
+                    <span>Selecionar este presente</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Presente 10 -->
+        <div class="present-box" id="present10">
+            <div class="media-left">
+                <figure class="image is-64x64">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 10">
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content" id="present10-description">
+                    <p><strong>Presente 10</strong> <small>Marca J</small></p>
+                    <p>Descrição do Presente 10.</p>
+                </div>
+                <label class="checkbox">
+                    <input type="checkbox" name="gifts" value="10" id="presente10">
+                    <span>Selecionar este presente</span>
+                </label>
+            </div>
+        </div>
+
         <button class="button is-primary" onclick="saveSelections()">Salvar</button>
         <button class="button is-light" onclick="clearSelections()">Limpar</button>
     </div>
@@ -116,7 +241,13 @@
                 presente1: { selected: document.getElementById('presente1').checked, user: username },
                 presente2: { selected: document.getElementById('presente2').checked, user: username },
                 presente3: { selected: document.getElementById('presente3').checked, user: username },
-                presente4: { selected: document.getElementById('presente4').checked, user: username }
+                presente4: { selected: document.getElementById('presente4').checked, user: username },
+                presente5: { selected: document.getElementById('presente5').checked, user: username },
+                presente6: { selected: document.getElementById('presente6').checked, user: username },
+                presente7: { selected: document.getElementById('presente7').checked, user: username },
+                presente8: { selected: document.getElementById('presente8').checked, user: username },
+                presente9: { selected: document.getElementById('presente9').checked, user: username },
+                presente10: { selected: document.getElementById('presente10').checked, user: username },
             };
 
             try {
@@ -183,7 +314,7 @@
                     if (data[key].user === null && checkbox.disabled) {
                         checkbox.disabled = false;
                         checkbox.checked = false;
-                        checkbox.nextElementSibling.textContent = 'Selecionar este presente';
+                        checkbox.nextElementSibling.textContent = 'Selecionar este Presente';
                     }
                 }
             } catch (error) {
@@ -191,17 +322,29 @@
             }
         }
 
+
         async function loadSelections() {
             try {
                 const response = await fetch('/get-selections');
                 const data = await response.json();
+                const username = getUsernameFromUrl();
 
                 for (const key in data) {
                     const checkbox = document.getElementById(key);
-                    checkbox.checked = data[key].selected || false;
-                    if (data[key].selected) {
+                    if (data[key].selected && data[key].user !== username) {
                         checkbox.disabled = true;
-                        checkbox.nextElementSibling.textContent = `${data[key].user} selecionou este presente`;
+                        checkbox.checked = true;
+                        checkbox.nextElementSibling.textContent = `Presente já selecionado`;
+                        checkbox.nextElementSibling.classList.add('selected-by-others');
+                    } else if (data[key].selected && data[key].user === username) {
+                        checkbox.disabled = true;
+                        checkbox.checked = true;
+                        checkbox.nextElementSibling.textContent = `Você selecionou este presente`;
+                    } else {
+                        checkbox.disabled = false;
+                        checkbox.checked = false;
+                        checkbox.nextElementSibling.textContent = 'Selecionar este presente';
+                        checkbox.nextElementSibling.classList.remove('selected-by-others');
                     }
                 }
             } catch (error) {
@@ -211,10 +354,12 @@
 
         function getUsernameFromUrl() {
             const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get('username');
+            return urlParams.get('username') || 'Usuário';
         }
 
-        window.onload = loadSelections;
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSelections();
+        });
     </script>
 </body>
 </html>

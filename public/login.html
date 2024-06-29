@@ -1,37 +1,177 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.1/css/bulma.min.css"
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.1/css/bulma.min.css"
     />
-  </head>
-  <body>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+        rel="stylesheet"
+    />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <style>
+        body {
+            background: linear-gradient(135deg, #FBFADA, #ADBC9F, #ADBC9F, #FBFADA);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid green;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 20px; /* Espaço entre o texto e o quadrado */
+        }
+
+        .field {
+            margin-bottom: 20px;
+        }
+
+        #countdown {
+            font-family: 'Great Vibes', cursive;
+            font-size: 48px; /* Aumentando o tamanho da fonte */
+            color: #333;
+            margin-top: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        #countdown > div {
+            margin: 10px; /* Aumentando o espaço entre os elementos */
+        }
+
+        #countdown > div > span {
+            display: block;
+            font-size: 24px; /* Aumentando o tamanho da fonte para os textos */
+            font-weight: normal;
+            margin-top: 10px;
+        }
+
+        #names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 36px;
+            color: #333;
+        }
+
+        #wedding-date {
+            font-family: 'Great Vibes', cursive;
+            font-size: 24px;
+            color: #333;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #wedding-date i {
+            color: #436850;
+            margin-right: 10px;
+        }
+
+        #ramo {
+            width: 100%;
+            max-width: 300px; /* Ajuste o tamanho conforme necessário */
+            margin-bottom: 10px;
+        }
+
+        .button.is-primary {
+            background-color: #ADBC9F;
+            border-color: #ADBC9F;
+        }
+    </style>
+</head>
+<body>
+    <img id="ramo" src="raminho top 2.png" alt="Ramo de flores">
+    <div id="names">Fabio & Leticia</div>
     <section class="section">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-4">
-            <form action="/login" method="POST">
-              <div class="field">
-                <label class="label">Nome</label>
-                <div class="control">
-                  <input class="input" type="text" name="username" required />
+        <div class="container">
+            <div class="columns is-centered is-vcentered">
+                <div class="column">
+                    <form action="/login" method="POST">
+                        <div class="field">
+                            <label class="label">Nome</label>
+                            <div class="control">
+                                <input class="input" type="text" name="username" required style="color:#436850;" />
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="control">
+                                <button class="button is-primary is-fullwidth" type="submit">
+                                    Entrar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-              </div>
-              <div class="field">
-                <div class="control">
-                  <button class="button is-primary" type="submit">
-                    Entrar
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
+            </div>
         </div>
-      </div>
     </section>
-  </body>
+    <div id="wedding-date">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        21/09/24
+    </div>
+    <div id="countdown" class="has-text-centered mt-4"></div>
+
+    <script>
+        // Data do casamento (21 de setembro de 2024)
+        const weddingDate = new Date('2024-09-21T00:00:00');
+
+        function updateCountdown() {
+            const currentDate = new Date();
+            const timeDiff = weddingDate.getTime() - currentDate.getTime();
+
+            const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.innerHTML = `
+                <div>
+                    <span>${days}</span>
+                    <span style="font-size: 20px;">Dias</span>
+                </div>
+                <div>
+                    <span>${hours}</span>
+                    <span style="font-size: 20px;">Horas</span>
+                </div>
+                <div>
+                    <span>${minutes}</span>
+                    <span style="font-size: 20px;">Minutos</span>
+                </div>
+                <div>
+                    <span>${seconds}</span>
+                    <span style="font-size: 20px;">Segundos</span>
+                </div>
+            `;
+        }
+
+        // Atualiza o contador inicialmente ao carregar a página
+        updateCountdown();
+
+        // Atualiza o contador a cada segundo para manter o tempo atualizado
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
 </html>
