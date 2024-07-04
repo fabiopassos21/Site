@@ -16,89 +16,116 @@
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-    <style>
-        body {
-            background: linear-gradient(135deg, #FBFADA, #ADBC9F, #ADBC9F, #FBFADA);
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-            padding: 20px;
-        }
+    <link 
+    rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style> 
+        a {
+        color: #333;
+        text-decoration: none;
+        font-family: 'Great Vibes', cursive;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+        font-size: 28px;
+        margin-left: 10px;
+    }
 
-        .container {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 8px;
-            border: 2px solid green;
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-top: 20px; /* Espaço entre o texto e o quadrado */
-        }
+    body {
+        background: linear-gradient(135deg, #FBFADA, #ADBC9F, #ADBC9F, #FBFADA);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+  
+    }
 
-        .field {
-            margin-bottom: 20px;
+    .container {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid green;
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #countdown {
+        font-family: 'Great Vibes', cursive;
+        font-size: 48px; /* Aumentando o tamanho da fonte */
+        color: #333;
+       
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    #locationn {
+        font-size: 24px; /* Adicionado para garantir que o ícone e o link tenham tamanho adequado */
+         /* Remover a margem superior */
+    }
+
+    #countdown > div {
+        margin: 10px; /* Aumentando o espaço entre os elementos */
+    }
+
+    #countdown > div > span {
+        display: block;
+        font-size: 24px; /* Aumentando o tamanho da fonte para os textos */
+        font-weight: normal;
+    }
+
+    #names {
+        font-family: 'Great Vibes', cursive;
+        font-size: 38px;
+        color: #333;
+    }
+
+    #wedding-date {
+        font-family: 'Great Vibes', cursive;
+        font-size: 24px;
+        color: #333;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #wedding-date i {
+        color: #436850;
+        margin-right: 10px;
+    }
+
+    #ramo {
+        width: 100%;
+        max-width: 300px; /* Ajuste o tamanho conforme necessário */
+       
+    }
+
+    .button.is-primary {
+        background-color: #ADBC9F;
+        border-color: #ADBC9F;
+    }
+
+  @media (min-width: 200px) and (max-width: 600px) {
+        a {
+            font-size: 22px;
+            margin-left: 5px;
         }
 
         #countdown {
-            font-family: 'Great Vibes', cursive;
-            font-size: 48px; /* Aumentando o tamanho da fonte */
-            color: #333;
-            margin-top: 20px;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+            font-size: 22px;
+        }
+        #ramo{
+           margin: -59px;
         }
 
-        #countdown > div {
-            margin: 10px; /* Aumentando o espaço entre os elementos */
-        }
-
-        #countdown > div > span {
-            display: block;
-            font-size: 24px; /* Aumentando o tamanho da fonte para os textos */
-            font-weight: normal;
-            margin-top: 10px;
-        }
-
-        #names {
-            font-family: 'Great Vibes', cursive;
-            font-size: 36px;
-            color: #333;
-        }
-
-        #wedding-date {
-            font-family: 'Great Vibes', cursive;
-            font-size: 24px;
-            color: #333;
-            margin-top: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #wedding-date i {
-            color: #436850;
-            margin-right: 10px;
-        }
-
-        #ramo {
-            width: 100%;
-            max-width: 300px; /* Ajuste o tamanho conforme necessário */
-            margin-bottom: 10px;
-        }
-
-        .button.is-primary {
-            background-color: #ADBC9F;
-            border-color: #ADBC9F;
-        }
+    }
     </style>
 </head>
 <body>
@@ -127,10 +154,15 @@
             </div>
         </div>
     </section>
+    <div id = "locationn">
+        <i class="fa-solid fa-location-dot"></i> <a href="https://maps.app.goo.gl/svjHqSkcsvKnbHydA" >Localização do Casamento </a></i>
+
+    </div>
     <div id="wedding-date">
         <i class="fa fa-calendar" aria-hidden="true"></i>
         21/09/24
     </div>
+  
     <div id="countdown" class="has-text-centered mt-4"></div>
 
     <script>

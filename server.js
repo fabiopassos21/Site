@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const apiKey = '$2a$10$zjWMTphrbmGC0S8D0Gav1.dYqSvPc/GiJ3O5.XJAy/kE7JQBB7pW6';
-const binId = '667db440ad19ca34f87fc213';
+const binId = '6682f052e41b4d34e40bb26f';
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

@@ -6,24 +6,45 @@
     <title>Lista de Presentes</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <style>
-        body{
+        
+
+
+        #clear-button{
+            margin-left: 10px;
+        }
+
+        #save-button{
+            margin-left: 25%;
+        }
+        body {
             background: linear-gradient(135deg, #FBFADA, #ADBC9F, #ADBC9F, #FBFADA);
+            justify-content: center;         
+            flex-direction: column;
+
         }
         .present-box {
             margin-bottom: 20px;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #852222;
             border-radius: 5px;
             display: flex;
+            align-content: center;
             align-items: center;
+            width: 50%;
+            height: 140px;
             background-color: #fff;
-        }
+            margin-left: 25%;
+            }
         .present-box img {
             max-width: 64px;
             margin-right: 20px;
         }
         .checkbox {
-            margin-left: auto;
+            border-radius: 90px;
+            justify-content: center;
+            flex-direction: column;
+           
+        
         }
         .checkbox.disabled {
             opacity: 0.5;
@@ -33,6 +54,53 @@
         color: red; /* Cor vermelha para texto já selecionado */
         font-weight: bold; /* Opcional: torna o texto em negrito */
     }
+    .title{
+            margin-bottom: 20px;
+            padding-top: 20px;
+            display: flex;
+            align-content: center;
+            align-items: center; 
+            margin-left: 25%;
+            
+    }
+
+  @media  (max-width: 600px) {
+    .title {
+        margin-bottom: 20px;
+        padding-top: 20px;
+        display: flex;
+        margin-left: 5%;
+        
+        justify-content: left;  /* Corrigido de align-content para justify-content */
+        align-items: center;
+    }
+    .present-box {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #6320dd;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center; /* Corrigido de align-content para justify-content */
+        align-items: center;
+        width: 90%;
+        margin-left:5%;
+        height: 50%;
+        background-color: #fff;
+    }
+    body {
+        background: linear-gradient(135deg, #FBFADA, #ADBC9F, #ADBC9F, #FBFADA);
+        display: flex;
+        justify-content: left;
+        align-items: center; /* Adicionado para centralizar verticalmente */
+        flex-direction: column;
+  
+    }
+    #save-button{
+        margin-left: 5%;
+        margin-bottom: 5%;
+    }
+}
+  
     </style>
 </head>
 <body>
@@ -229,8 +297,8 @@
             </div>
         </div>
 
-        <button class="button is-primary" onclick="saveSelections()">Salvar</button>
-        <button class="button is-light" onclick="clearSelections()">Limpar</button>
+        <button class="button is-primary" onclick="saveSelections()" id="save-button">Salvar</button>
+        <button class="button is-light" onclick="clearSelections()"id="clear-button">Limpar</button>
     </div>
 
     <script>
