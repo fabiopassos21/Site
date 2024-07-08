@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Presentes</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <style>
         
 
+
+        .content{
+            display:block
+        }
 
         #clear-button{
             margin-left: 10px;
@@ -15,6 +21,11 @@
 
         #save-button{
             margin-left: 25%;
+        }
+        #link_presente{
+            margin-left: 15%;
+            font-size: 10px;
+            
         }
         body {
             background: linear-gradient(135deg, #FBFADA, #ADBC9F, #ADBC9F, #FBFADA);
@@ -64,7 +75,8 @@
             
     }
 
-  @media  (max-width: 600px) {
+  @media  (max-width: 600px) and (orientation:portrait) {
+    
     .title {
         margin-bottom: 20px;
         padding-top: 20px;
@@ -74,6 +86,15 @@
         justify-content: left;  /* Corrigido de align-content para justify-content */
         align-items: center;
     }
+
+    #link_presente{
+            margin-left: 17%;
+            font-size: 10;
+            
+        }
+        .landscape-warning {
+    display: block;
+  }
     .present-box {
         margin-bottom: 20px;
         padding: 10px;
@@ -88,6 +109,7 @@
         background-color: #fff;
     }
     body {
+        display: none;
         background: linear-gradient(135deg, #FBFADA, #ADBC9F, #ADBC9F, #FBFADA);
         display: flex;
         justify-content: left;
@@ -98,7 +120,19 @@
     #save-button{
         margin-left: 5%;
         margin-bottom: 5%;
+ 
     }
+
+
+}
+
+
+@media (orientation: landscape) {
+  .landscape-warning {
+    display: block;
+  }
+
+  
 }
   
     </style>
@@ -110,193 +144,522 @@
         <!-- Presente 1 -->
         <div class="present-box" id="present1">
             <div class="media-left">
-                <figure class="image is-64x64">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 1">
+                <figure class="image is-64x32">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_635738-MLA43361924487_092020-O.webp" alt="Imagem Presente 1">
                 </figure>
             </div>
             <div class="media-content">
                 <div class="content" id="present1-description">
-                    <p><strong>Presente 1</strong> <small>Marca A</small></p>
-                    <p>Descrição do Presente 1.</p>
+                    <p><strong>Liquidificador </strong> <small>Cor Preto</small></p>
+                    <p>Pedimos que se optarem por este presente, pedimos nas cores preto ou cinza obrigado.</p>
                 </div>
                 <label class="checkbox">
                     <input type="checkbox" name="gifts" value="1" id="presente1">
                     <span>Selecionar este presente</span>
+
+               
                 </label>
+                 <small>
+
+        
+                <a href="https://www.mercadolivre.com.br/liquidificador-philco-ph900-preto-1200w-127v/p/MLB15578941">
+                <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">
+                     
+                    </i>
+                    <b >Link Exemplo</b>
+                </a>
+            </small>
             </div>
         </div>
 
         <!-- Presente 2 -->
         <div class="present-box" id="present2">
             <div class="media-left">
-                <figure class="image is-64x64">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 2">
+                <figure class="image is-64x32">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_779788-MLU75096840590_032024-O.webp" alt="Imagem Presente 2">
                 </figure>
             </div>
             <div class="media-content">
                 <div class="content" id="present2-description">
-                    <p><strong>Presente 2</strong> <small>Marca B</small></p>
-                    <p>Descrição do Presente 2.</p>
+                    <p><strong>Batedeira Planetária</strong> <small>Cor preto</small></p>
+                    <p>Pedimos que se optarem por este presente, pedimos nas cores preto ou cinza obrigado.</p>
+                 
                 </div>
                 <label class="checkbox">
                     <input type="checkbox" name="gifts" value="2" id="presente2">
                     <span>Selecionar este presente</span>
+                    
                 </label>
+                <small>
+                    <a href="https://www.mercadolivre.com.br/depurador-slim-dps161pt-60cm-3-velocidades-preto-suggar-110v-127v/p/MLB21720839?attributes=COLOR:Preto">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                        </i>
+                        <b>Link Exemplo</b>
+                    </a>
+                </small>
             </div>
         </div>
 
         <!-- Presente 3 -->
         <div class="present-box" id="present3">
             <div class="media-left">
-                <figure class="image is-64x64">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 3">
+                <figure class="image is-64x32">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_930182-MLU72972409847_112023-O.webp" alt="Imagem Presente 3">
                 </figure>
             </div>
             <div class="media-content">
                 <div class="content" id="present3-description">
-                    <p><strong>Presente 3</strong> <small>Marca C</small></p>
-                    <p>Descrição do Presente 3.</p>
+                    <p><strong>Mixer </strong> <small>Cor Preto </small></p>
+                    <p>Temos preferencia desse mixer que ja tem com os itens mas fiquem a vontades para verificar em outras lojas </p>
                 </div>
                 <label class="checkbox">
                     <input type="checkbox" name="gifts" value="3" id="presente3">
                     <span>Selecionar este presente</span>
                 </label>
+                <small>
+                    <a href="https://www.mercadolivre.com.br/mixer-bmx350p-350w-lminas-pro-maxx-britnia-110v/p/MLB18427664?attributes=COLOR:Preto">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                        </i>
+                        <b>Link Exemplo</b>
+                    </a>
+                </small>
             </div>
         </div>
 
         <!-- Presente 4 -->
         <div class="present-box" id="present4">
             <div class="media-left">
-                <figure class="image is-64x64">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 4">
+                <figure class="image is-64x32">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_725136-MLU75327108377_032024-O.webp" alt="Imagem Presente 4">
                 </figure>
             </div>
             <div class="media-content">
                 <div class="content" id="present4-description">
-                    <p><strong>Presente 4</strong> <small>Marca D</small></p>
-                    <p>Descrição do Presente 4.</p>
+                    <p><strong>Depurador / Exaustor </strong> <small>Cor Preto </small></p>
+                    <p>Ao selecionar esse presente pedimos para escolher na voltagem 110, mandamos um link de modelo mas, fique avontade de pegar um item similar </p>
                 </div>
                 <label class="checkbox">
                     <input type="checkbox" name="gifts" value="4" id="presente4">
                     <span>Selecionar este presente</span>
                 </label>
+                <small>
+                    <a href="https://www.mercadolivre.com.br/depurador-slim-dps161pt-60cm-3-velocidades-preto-suggar-110v-127v/p/MLB21720839?attributes=COLOR:Preto">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                        </i>
+                        <b>Link Exemplo</b>
+                    </a>
+                </small>
             </div>
         </div>
 
         <!-- Presente 5 -->
         <div class="present-box" id="present5">
             <div class="media-left">
-                <figure class="image is-64x64">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 5">
+                <figure class="image is-48x64">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_827186-MLB47661208838_092021-O.webp" alt="Imagem Presente 5">
                 </figure>
             </div>
             <div class="media-content">
                 <div class="content" id="present5-description">
-                    <p><strong>Presente 5</strong> <small>Marca E</small></p>
-                    <p>Descrição do Presente 5.</p>
+                    <p><strong>Jogo de Lousa OxFord</strong> <small></small></p>
+                    <p>Pedimos essa louça especificamente, que vai combinar com nossa decoração e voce está mais do que convidado para experimentar minha macarronada</p>
                 </div>
                 <label class="checkbox">
                     <input type="checkbox" name="gifts" value="5" id="presente5">
                     <span>Selecionar este presente</span>
                 </label>
+                <small>
+                    <a href="https://produto.mercadolivre.com.br/MLB-2036163526-jogo-de-jantar-para-4-pessoas-porcelana-maresia-oxford-_JM">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                        </i>
+                        <b>Link Exemplo</b>
+                    </a>
+                </small>
             </div>
         </div>
 
         <!-- Presente 6 -->
         <div class="present-box" id="present6">
             <div class="media-left">
-                <figure class="image is-64x64">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 6">
+                <figure class="image is-48x64">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_829492-MLU77095174246_062024-O.webp" alt="Imagem Presente 6">
                 </figure>
             </div>
             <div class="media-content">
                 <div class="content" id="present6-description">
-                    <p><strong>Presente 6</strong> <small>Marca F</small></p>
-                    <p>Descrição do Presente 6.</p>
+                    <p><strong>Forno Elétrico De Embutir</strong> <small>Cor Preto</small></p>
+                    <p>Forno 110, com capacidade de 50 litros - capacidade padrão, nao gostariamos de uma cor em inox,sem preferencia de merca, obrigado</p>
                 </div>
                 <label class="checkbox">
                     <input type="checkbox" name="gifts" value="6" id="presente6">
                     <span>Selecionar este presente</span>
                 </label>
+                <small>
+                    <a href="https://www.mercadolivre.com.br/forno-eletrico-de-embutir-fischer-preto-50-litros-127v/p/MLB19128367?attributes=VOLTAGE:127V,COLOR:Preto">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                        </i>
+                        <b>Link Exemplo</b>
+                    </a>
+                </small>
             </div>
         </div>
 
         <!-- Presente 7 -->
         <div class="present-box" id="present7">
             <div class="media-left">
-                <figure class="image is-64x64">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 7">
+                <figure class="image is-48x64">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_778353-MLU72851432962_112023-O.webp" alt="Imagem Presente 7">
                 </figure>
             </div>
             <div class="media-content">
                 <div class="content" id="present7-description">
-                    <p><strong>Presente 7</strong> <small>Marca G</small></p>
-                    <p>Descrição do Presente 7.</p>
+                    <p><strong>Panela De Pressão</strong> <small>Cor Preto</small></p>
+                    <p>Pedimos uma panela de pressao eletrica na 110, 5l a marca em si pode ser qualquer uma similar a philco, agradecemos a todos </p>
                 </div>
                 <label class="checkbox">
                     <input type="checkbox" name="gifts" value="7" id="presente7">
                     <span>Selecionar este presente</span>
                 </label>
+                <small>
+                    <a href="https://www.mercadolivre.com.br/panela-de-presso-philco-ppp02pi-inox-multifuncional-5l-cor-preto-127v/p/MLB16162795?attributes=COLOR:Preto">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                        </i>
+                        <b>Link Exemplo</b>
+                    </a>
+                </small>
             </div>
         </div>
 
         <!-- Presente 8 -->
         <div class="present-box" id="present8">
             <div class="media-left">
-                <figure class="image is-64x64">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 8">
+                <figure class="image is-48x64">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_682167-MLU72462182066_102023-O.webp" alt="Imagem Presente 8">
                 </figure>
             </div>
             <div class="media-content">
                 <div class="content" id="present8-description">
-                    <p><strong>Presente 8</strong> <small>Marca H</small></p>
-                    <p>Descrição do Presente 8.</p>
+                    <p><strong>Jogo De Facas Inox</strong> <small>Cor Cinza / Preto</small></p>
+                    <p>Pedimo jogo de Faca Inox esse nos achamos muito bonito,porem se preferirem nos dar outros jogos da tramontina ou esse do exemplo, nos agradecemos </p>
                 </div>
                 <label class="checkbox">
                     <input type="checkbox" name="gifts" value="8" id="presente8">
                     <span>Selecionar este presente</span>
                 </label>
+                <small>
+                    <a href="https://www.mercadolivre.com.br/panela-de-presso-philco-ppp02pi-inox-multifuncional-5l-cor-preto-127v/p/MLB16162795?attributes=COLOR:Preto">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                        </i>
+                        <b>Link Exemplo</b>
+                    </a>
+                </small>
             </div>
         </div>
 
         <!-- Presente 9 -->
         <div class="present-box" id="present9">
             <div class="media-left">
-                <figure class="image is-64x64">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 9">
+                <figure class="image is-48x64">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_774561-MLU75467540811_032024-O.webp" alt="Imagem Presente 9">
                 </figure>
             </div>
             <div class="media-content">
                 <div class="content" id="present9-description">
-                    <p><strong>Presente 9</strong> <small>Marca I</small></p>
-                    <p>Descrição do Presente 9.</p>
+                    <p><strong>Jogo Talheres Faqueiro</strong> <small>INOX</small></p>
+                    <p>Jogo Talheres Faqueiro 24 peças, segue o link como exemplo </p>
                 </div>
                 <label class="checkbox">
                     <input type="checkbox" name="gifts" value="9" id="presente9">
                     <span>Selecionar este presente</span>
                 </label>
+                <small>
+                    <a href="https://www.mercadolivre.com.br/jogo-talheres-faqueiro-buzios-aco-inox-24-pecas-tramontina/p/MLB35092029">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                        </i>
+                        <b>Link Exemplo</b>
+                    </a>
+                </small>
             </div>
         </div>
 
         <!-- Presente 10 -->
         <div class="present-box" id="present10">
             <div class="media-left">
-                <figure class="image is-64x64">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_970085-MLA50595311592_072022-O.webp" alt="Imagem Presente 10">
+                <figure class="image is-48x64">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_850936-MLU77365584059_072024-O.webp" alt="Imagem Presente 10">
                 </figure>
             </div>
             <div class="media-content">
                 <div class="content" id="present10-description">
-                    <p><strong>Presente 10</strong> <small>Marca J</small></p>
-                    <p>Descrição do Presente 10.</p>
+                    <p><strong>Jogo Panelas 7 Peças</strong> <small>Cor Preto</small></p>
+                    <p>Pedimos esse jogo de panelas 7 peças da tramontina preferencia da cor preta, para combinar com o restante da cozinha </p>
                 </div>
                 <label class="checkbox">
                     <input type="checkbox" name="gifts" value="10" id="presente10">
                     <span>Selecionar este presente</span>
                 </label>
+                <small>
+                    <a href="https://www.mercadolivre.com.br/jogo-panelas-7-pecas-turim-tramontina-antiaderente-aluminio-cor-preto/p/MLB33325410">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                        </i>
+                        <b>Link Exemplo</b>
+                    </a>
+                </small>
             </div>
         </div>
 
+         <!-- Presente 11 -->
+         <div class="present-box" id="present11">
+            <div class="media-left">
+                <figure class="image is-48x64">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_608229-MLU73567616841_122023-O.webp" alt="Imagem Presente 11">
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content" id="present11">
+                    <p><strong>Jogo De 6 Copos Altos</strong> </p>
+                    <p> Esse jogo de copos lindos quadrados em uma boa quantidade </p>
+                </div>
+                <label class="checkbox">
+                    <input type="checkbox" name="gifts" value="11" id="presente11">
+                    <span>Selecionar este presente</span>
+                </label>
+                <small>
+                    <a href="https://www.mercadolivre.com.br/jogo-de-6-copos-altos-de-vidro-250ml-quadrado-dolce-home-cor-incolor/p/MLB23554159">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                        </i>
+                        <b>Link Exemplo</b>
+                    </a>
+                </small>
+            </div>
+        </div>
+          <!-- Presente 12 --> 
+          <div class="present-box" id="present12">
+            <div class="media-left">
+                <figure class="image is-48x64">
+                    <img src="https://http2.mlstatic.com/D_NQ_NP_645592-MLU73605011680_122023-O.webp" alt="Imagem Presente 12">
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content" id="present12">
+                    <p><strong>Jogo De Pratos Rasos</strong> <small>Cor Branco</small></p>
+                    <p>Jogo de Pratos brancos estilo muito bonito adorariamos ganhar esse  </p>
+                </div>
+                <label class="checkbox">
+                    <input type="checkbox" name="gifts" value="12" id="presente12">
+                    <span>Selecionar este presente</span>
+                </label>
+                <small>
+                    <a href="https://www.mercadolivre.com.br/jogo-de-pratos-rasos-6-unidades-duralex-vidro-opalino-nadir-figueiredo/p/MLB24058954">
+                    <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                        </i>
+                        <b>Link Exemplo</b>
+                    </a>
+                </small>
+            </div>
+        </div>
+
+  <!-- Presente 13 -->
+  <div class="present-box" id="present13"> 
+    <div class="media-left">
+        <figure class="image is-48x64">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_635829-MLU72675536566_112023-O.webp" alt="Imagem Presente 13">
+        </figure>
+    </div>
+    <div class="media-content">
+        <div class="content" id="present13">
+            <p><strong>Jogo de Assadeiras Com 3 peças</strong> <small>Cor Preto</small></p>
+            <p>Pedimos esse jogo de panelas 7 peças da tramontina preferencia da cor preta, para combinar com o restante da cozinha </p>
+        </div>
+        <label class="checkbox">
+            <input type="checkbox" name="gifts" value="13" id="presente13">
+            <span>Selecionar este presente</span>
+        </label>
+        <small>
+            <a href="https://www.mercadolivre.com.br/jogo-panelas-7-pecas-turim-tramontina-antiaderente-aluminio-cor-preto/p/MLB33325410">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                </i>
+                <b>Link Exemplo</b>
+            </a>
+        </small>
+    </div>
+</div>
+  <!-- Presente 14 -->
+  <div class="present-box" id="present14">
+    <div class="media-left">
+        <figure class="image is-48x64">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_850936-MLU77365584059_072024-O.webp" alt="Imagem Presente 14">
+        </figure>
+    </div>
+    <div class="media-content">
+        <div class="content" id="present13">
+            <p><strong>Jogo Panelas 7 Peças</strong> <small>Cor Preto</small></p>
+            <p>Pedimos esse jogo de panelas 7 peças da tramontina preferencia da cor preta, para combinar com o restante da cozinha </p>
+        </div>
+        <label class="checkbox">
+            <input type="checkbox" name="gifts" value="14" id="presente14">
+            <span>Selecionar este presente</span>
+        </label>
+        <small>
+            <a href="https://www.mercadolivre.com.br/jogo-panelas-7-pecas-turim-tramontina-antiaderente-aluminio-cor-preto/p/MLB33325410">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                </i>
+                <b>Link Exemplo</b>
+            </a>
+        </small>
+    </div>
+</div>
+
+  <!-- Presente 15 -->
+  <div class="present-box" id="present15">
+    <div class="media-left">
+        <figure class="image is-48x64">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_850936-MLU77365584059_072024-O.webp" alt="Imagem Presente 15">
+        </figure>
+    </div>
+    <div class="media-content">
+        <div class="content" id="present15">
+            <p><strong>Jogo Panelas 7 Peças</strong> <small>Cor Preto</small></p>
+            <p>Pedimos esse jogo de panelas 7 peças da tramontina preferencia da cor preta, para combinar com o restante da cozinha </p>
+        </div>
+        <label class="checkbox">
+            <input type="checkbox" name="gifts" value="15" id="presente15">
+            <span>Selecionar este presente</span>
+        </label>
+        <small>
+            <a href="https://www.mercadolivre.com.br/jogo-panelas-7-pecas-turim-tramontina-antiaderente-aluminio-cor-preto/p/MLB33325410">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                </i>
+                <b>Link Exemplo</b>
+            </a>
+        </small>
+    </div>
+</div>
+ <!-- Presente 16 -->
+ <div class="present-box" id="present15">
+    <div class="media-left">
+        <figure class="image is-48x64">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_850936-MLU77365584059_072024-O.webp" alt="Imagem Presente 16">
+        </figure>
+    </div>
+    <div class="media-content">
+        <div class="content" id="present16">
+            <p><strong>Jogo Panelas 7 Peças</strong> <small>Cor Preto</small></p>
+            <p>Pedimos esse jogo de panelas 7 peças da tramontina preferencia da cor preta, para combinar com o restante da cozinha </p>
+        </div>
+        <label class="checkbox">
+            <input type="checkbox" name="gifts" value="16" id="presente16">
+            <span>Selecionar este presente</span>
+        </label>
+        <small>
+            <a href="https://www.mercadolivre.com.br/jogo-panelas-7-pecas-turim-tramontina-antiaderente-aluminio-cor-preto/p/MLB33325410">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                </i>
+                <b>Link Exemplo</b>
+            </a>
+        </small>
+    </div>
+</div>
+ <!-- Presente 17 -->
+ <div class="present-box" id="present17">
+    <div class="media-left">
+        <figure class="image is-48x64">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_850936-MLU77365584059_072024-O.webp" alt="Imagem Presente 17">
+        </figure>
+    </div>
+    <div class="media-content">
+        <div class="content" id="present1">
+            <p><strong>Jogo Panelas 7 Peças</strong> <small>Cor Preto</small></p>
+            <p>Pedimos esse jogo de panelas 7 peças da tramontina preferencia da cor preta, para combinar com o restante da cozinha </p>
+        </div>
+        <label class="checkbox">
+            <input type="checkbox" name="gifts" value="17" id="presente17">
+            <span>Selecionar este presente</span>
+        </label>
+        <small>
+            <a href="https://www.mercadolivre.com.br/jogo-panelas-7-pecas-turim-tramontina-antiaderente-aluminio-cor-preto/p/MLB33325410">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                </i>
+                <b>Link Exemplo</b>
+            </a>
+        </small>
+    </div>
+</div>
+ <!-- Presente 18 -->
+ <div class="present-box" id="present18">
+    <div class="media-left">
+        <figure class="image is-48x64">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_850936-MLU77365584059_072024-O.webp" alt="Imagem Presente 18">
+        </figure>
+    </div>
+    <div class="media-content">
+        <div class="content" id="present18">
+            <p><strong>Jogo Panelas 7 Peças</strong> <small>Cor Preto</small></p>
+            <p>Pedimos esse jogo de panelas 7 peças da tramontina preferencia da cor preta, para combinar com o restante da cozinha </p>
+        </div>
+        <label class="checkbox">
+            <input type="checkbox" name="gifts" value="18" id="presente18">
+            <span>Selecionar este presente</span>
+        </label>
+        <small>
+            <a href="https://www.mercadolivre.com.br/jogo-panelas-7-pecas-turim-tramontina-antiaderente-aluminio-cor-preto/p/MLB33325410">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                </i>
+                <b>Link Exemplo</b>
+            </a>
+        </small>
+    </div>
+</div>
+ <!-- Presente 19 -->
+ <div class="present-box" id="present19">
+    <div class="media-left">
+        <figure class="image is-48x64">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_850936-MLU77365584059_072024-O.webp" alt="Imagem Presente 19">
+        </figure>
+    </div>
+    <div class="media-content">
+        <div class="content" id="present19">
+            <p><strong>Jogo Panelas 7 Peças</strong> <small>Cor Preto</small></p>
+            <p>Pedimos esse jogo de panelas 7 peças da tramontina preferencia da cor preta, para combinar com o restante da cozinha </p>
+        </div>
+        <label class="checkbox">
+            <input type="checkbox" name="gifts" value="19" id="presente19">
+            <span>Selecionar este presente</span>
+        </label>
+        <small>
+            <a href="https://www.mercadolivre.com.br/jogo-panelas-7-pecas-turim-tramontina-antiaderente-aluminio-cor-preto/p/MLB33325410">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                </i>
+                <b>Link Exemplo</b>
+            </a>
+        </small>
+    </div>
+</div>
+ <!-- Presente 20 -->
+ <div class="present-box" id="present20">
+    <div class="media-left">
+        <figure class="image is-48x64">
+            <img src="https://http2.mlstatic.com/D_NQ_NP_850936-MLU77365584059_072024-O.webp" alt="Imagem Presente 20">
+        </figure>
+    </div>
+    <div class="media-content">
+        <div class="content" id="present20">
+            <p><strong>Jogo Panelas 7 Peças</strong> <small>Cor Preto</small></p>
+            <p>Pedimos esse jogo de panelas 7 peças da tramontina preferencia da cor preta, para combinar com o restante da cozinha </p>
+        </div>
+        <label class="checkbox">
+            <input type="checkbox" name="gifts" value="20" id="presente20">
+            <span>Selecionar este presente</span>
+        </label>
+        <small>
+            <a href="https://www.mercadolivre.com.br/jogo-panelas-7-pecas-turim-tramontina-antiaderente-aluminio-cor-preto/p/MLB33325410">
+            <i class="fa-solid fa-cart-shopping" aria-hidden="false" id="link_presente">  
+                </i>
+                <b>Link Exemplo</b>
+            </a>
+        </small>
+    </div>
+</div>
         <button class="button is-primary" onclick="saveSelections()" id="save-button">Salvar</button>
         <button class="button is-light" onclick="clearSelections()"id="clear-button">Limpar</button>
     </div>
@@ -315,7 +678,17 @@
                 presente7: { selected: document.getElementById('presente7').checked, user: username },
                 presente8: { selected: document.getElementById('presente8').checked, user: username },
                 presente9: { selected: document.getElementById('presente9').checked, user: username },
-                presente10: { selected: document.getElementById('presente10').checked, user: username },
+                presente10:{ selected: document.getElementById('presente10').checked, user: username },
+                presente11: { selected: document.getElementById('presente11').checked, user: username },
+                presente12: { selected: document.getElementById('presente12').checked, user: username },
+                presente13: { selected: document.getElementById('presente13').checked, user: username },
+                presente14: { selected: document.getElementById('presente14').checked, user: username },
+                presente15: { selected: document.getElementById('presente15').checked, user: username },
+                presente16: { selected: document.getElementById('presente16').checked, user: username },
+                presente17: { selected: document.getElementById('presente17').checked, user: username },
+                presente18: { selected: document.getElementById('presente18').checked, user: username },
+                presente19: { selected: document.getElementById('presente19').checked, user: username },
+                presente20: { selected: document.getElementById('presente20').checked, user: username },
             };
 
             try {
