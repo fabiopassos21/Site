@@ -107,7 +107,12 @@ app.post('/clear-selections', checkAuth, async (req, res) => {
         presente17: false,
         presente18: false,
         presente19: false,
-        presente20: false
+        presente20: false,
+        presente21: false,
+        presente22: false,
+        presente23: false,
+        presente24: false,
+        presente25: false,
         // Adicione mais presentes conforme necessário
     };
 
