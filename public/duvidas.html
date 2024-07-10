@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/1.0.1/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <style>
         
+
+
+        .float-button {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #ADBC9F;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 2px 2px 5px #999;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            z-index: 1000;
+        }
+
+        .float-button:hover {
+            background-color: #0056b3;
+            box-shadow: 2px 2px 10px #666;
+        }
+
+        .float-button i {
+            font-size: 24px;
+            line-height: 60px;
+        }
         body {
             background: linear-gradient(135deg, #FBFADA, #ADBC9F, #ADBC9F, #FBFADA);
  
@@ -55,49 +81,32 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-7by3">
-                                <img src="271a6089-9747-4e65-8b1e-554456ba9799.jpg" alt="Imagem de Capa" id="foto" >
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <div class="media">
-                                <div class="media-content">
-                                    <p class="title is-3">Fabio & Leticia</p>
-                                </div>
-                            </div>
-                            <div class="content">
-                                <p><i class="fas fa-cross" aria-hidden="true"></i> "Até aqui o Senhor nos ajudou", 1 Samuel 7:12 <a href="#">#Casamento</a></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
                 <div class="column is-9">
                     <div class="card">
                         <header class="card-header">
-                            <p class="card-header-title">Sejam Bem-Vindos</p>
-                            <button class="card-header-icon" aria-label="more options">
-                                <span class="fas fa-star"></span>
-                            </button>
-                        </header>
-                        <div class="card-content">
-                            <div class="content" id="welcomeMessage">
-                         
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                    <br>
-                    <div class="card">
-                        <header class="card-header">
-                            <p class="card-header-title">Últimos Avisos</p>
+                            <p class="card-header-title">Posso Comprar um presente fora da lista ?</p>
                             <button class="card-header-icon" aria-label="more options">
                                 <span class="fas fa-warning"></span>
                             </button>
                         </header>
                         <div class="card-content">
+                            Pode sim, porém, pedimos para nos avisar (noiva ou noivo), deixarei meu whatsapp no botao ali embaixo apra duvidas desse tipo
+                            <div class="content" id="welcomeMessage">
+                         
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">Achei o presente mas tem na cor desejada e agora ? </p>
+                            <button class="card-header-icon" aria-label="more options">
+                                <span class="fas fa-warning"></span>
+                            </button>
+                        </header>
+                        <div class="card-content"> 
+                            <p>Pedimos tambem para nos conectar, alguns itens tudo bem mudar a cor, mas alguns em especifico pedimos para nos avisar, obrigado  </p>
                             <div class="content">
                                 
                             </div>
@@ -105,15 +114,30 @@
                     </div>
                     <div class="card">
                         <header class="card-header">
-                            <p class="card-header-title">Agradecimentos</p>
+                            <p class="card-header-title">Qual a voltagem dos equipamentos ? </p>
+                            <button class="card-header-icon" aria-label="more options">
+                                <span class="fas fa-warning"></span>
+                            </button>
+                        </header>
+                        <div class="card-content"> 
+                            <p>Todos os componentes eletronicos deverão ser 120v, é o padrão do nosso condominio, deixamos sempre os links com as voltagens correta, obrigado  </p>
+                            <div class="content">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">No dia do evento posso levar convidados fora da lista ?  </p>
                             <button class="card-header-icon" aria-label="more options">
                                 <span class="fas fa-cross"></span>
                             </button>
                         </header>
                         <div class="card-content">
+                          <p> Pedimos que por favor não façam isso, nos contamos apenas com amigos intimos e familiares agradecemos a compreensão </p>
                             <div class="content">
                                 <div class="column is-14">
-                                    Agradecemos primeiramente a Deus por suas ricas bênçãos em nossas vidas. A Nilton e Cleusa (pais da noiva) por terem tornado essa cerimônia possível nos ajudando ricamente com toda a festa, a Ludy e família (melhor amiga da noiva) por ter ajudado nos preparativos de toda a festa.
+                            
                                 </div>
                             </div>
                         </div>
@@ -123,24 +147,10 @@
         </div>
     </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const queryString = window.location.search; // busca a url 
-            const urlParams = new URLSearchParams(queryString);// busca a url 
-            const username = urlParams.get('username');// busca a url  acha o nome no login
+    <a href=" https://api.whatsapp.com/send?phone=5514991213252&text=Oi%20tenho%20algumas%20duvidas" class ="float-button">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
-           
-            window.globalUsername = username; // busca a url  joga nessa propriedade e recupera na vdd nao recupera 
- 
-            if (username) { // cara do curso fez assim 
-                const welcomeMessage = document.getElementById('welcomeMessage'); 
-                welcomeMessage.innerHTML = `<p><strong>Oi olá, ${username}! Agradecemos por estar presente nesse momento tão importante de nossas vidas</strong></p>`;
-                
-             
-                const giftsLink = document.getElementById('giftsLink');
-                giftsLink.href = `/gifts.html?username=${encodeURIComponent(username)}`;
-            }
-        });
-    </script>
+    
 </body>
 </html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown e Botão Flutuante</title>
+    <!-- Adicione os estilos do Bulma -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <!-- Adicione os estilos do Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        .float-button {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 2px 2px 5px #999;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            line-height: 60px; /* Centraliza verticalmente o ícone */
+            cursor: pointer;
+            z-index: 1001; /* Aumenta o z-index para estar acima do dropdown-menu */
+        }
+
+        .float-button:hover {
+            background-color: #0056b3;
+            box-shadow: 2px 2px 10px #666;
+        }
+
+        .float-button i {
+            font-size: 24px;
+        }
+
+        .dropdown-menu {
+            position: absolute; /* Alterado para posição absoluta */
+            z-index: 1000; /* Garante que o dropdown esteja acima de outros elementos */
+            width: 200px; /* Largura do dropdown-menu */
+        }
+        body {
+            background: linear-gradient(135deg, #FBFADA, #ADBC9F, #ADBC9F, #FBFADA);
+            justify-content: center;
+            flex-direction: column;
+         }
+    </style>
+</head>
+<body>
+
+<div class="dropdown">
+    <div class="dropdown-trigger">
+        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+            <span>Dropdown button</span>
+            <span class="icon is-small">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+        </button>
+    </div>
+    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+        <div class="dropdown-content">
+            <a href="#" class="dropdown-item"> Dropdown item </a>
+            <a class="dropdown-item"> Other dropdown item </a>
+            <a href="#" class="dropdown-item is-active"> Active dropdown item </a>
+            <a href="#" class="dropdown-item"> Other dropdown item </a>
+            <hr class="dropdown-divider" />
+            <a href="#" class="dropdown-item"> With a divider </a>
+        </div>
+    </div>
+</div>
+
+<!-- Botão Flutuante -->
+<div class="float-button">
+    <i class="fas fa-plus"></i>
+    <span>Teste</span>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Obtém o elemento do dropdown
+        var dropdown = document.querySelector('.dropdown');
+
+        // Obtém o botão de ativação do dropdown
+        var dropdownButton = dropdown.querySelector('.dropdown-trigger button');
+
+        // Obtém o dropdown-menu
+        var dropdownMenu = dropdown.querySelector('.dropdown-menu');
+
+        // Adiciona um evento de clique ao botão de ativação
+        dropdownButton.addEventListener('click', function (event) {
+            event.stopPropagation(); // Impede a propagação do evento para evitar fechar imediatamente após abrir
+
+            // Alterna a classe is-active no dropdown
+            dropdown.classList.toggle('is-active');
+        });
+
+        // Fecha o dropdown ao clicar fora dele
+        document.addEventListener('click', function (event) {
+            if (!dropdown.contains(event.target)) {
+                dropdown.classList.remove('is-active');
+            }
+        });
+
+       
+    });
+</script>
+
+</body>
+</html>

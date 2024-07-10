@@ -57,7 +57,7 @@
 
     #countdown {
         font-family: 'Great Vibes', cursive;
-        font-size: 48px; /* Aumentando o tamanho da fonte */
+        font-size: 48px;  
         color: #333;
        
         display: flex;
@@ -66,17 +66,16 @@
     }
 
     #locationn {
-        font-size: 24px; /* Adicionado para garantir que o ícone e o link tenham tamanho adequado */
-         /* Remover a margem superior */
+        font-size: 24px;  
     }
 
     #countdown > div {
-        margin: 10px; /* Aumentando o espaço entre os elementos */
+        margin: 10px;  
     }
 
     #countdown > div > span {
         display: block;
-        font-size: 24px; /* Aumentando o tamanho da fonte para os textos */
+        font-size: 24px; 
         font-weight: normal;
     }
 
@@ -103,7 +102,7 @@
 
     #ramo {
         width: 100%;
-        max-width: 300px; /* Ajuste o tamanho conforme necessário */
+        max-width: 300px;  
        
     }
 
@@ -166,7 +165,7 @@
     <div id="countdown" class="has-text-centered mt-4"></div>
 
     <script>
-        // Data do casamento (21 de setembro de 2024)
+ 
         const weddingDate = new Date('2024-09-21T00:00:00');
 
         function updateCountdown() {
@@ -199,10 +198,10 @@
             `;
         }
 
-        // Atualiza o contador inicialmente ao carregar a página
+ 
         updateCountdown();
 
-        // Atualiza o contador a cada segundo para manter o tempo atualizado
+ 
         setInterval(updateCountdown, 1000);
     </script>
 </body>
