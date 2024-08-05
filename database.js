@@ -9,11 +9,11 @@ db.serialize(() => {
     )`);
 
     const usersData = [
-        "Fabio", "Leticia", "Valeria", "Paulinho", "Bruno",
-        "Gaby", "Ademir", "Vinicius", "Felipe", "Neusa",
-        "Angelica", "Thainara", "Maria", "Felas", "Marcinho",
-        "Keila", "Samuel", "Sidney", "Pino", "Rosane",
-        "Simara", "Ailton", "Neli", "Roberto", "Diego"
+       "Fabio", "Leticia", "Valeria", "Paulo", "Bruno",
+        "Adriana", "Ademir", "Vinicius", "Felipe", "Neusa",
+        "Angelica", "Tainara", "Maria", "Marcinho",
+        "Keila", "Samuel", "Sidney", "Pino","Felipe Barbosa","Thais","Amanda",
+        "Simara", "Ailton", "Neli", "Roberto", "Diego","Priscila","Massaro","Carmen","Rodolfo","Jose","Roberto","Edson"
     ];
 
     const stmtInsertUser = db.prepare("INSERT INTO users (name) VALUES (?)");
