@@ -13,7 +13,7 @@ db.serialize(() => {
         "Adriana", "Ademir", "Vinicius", "Felipe", "Neusa",
         "Angelica", "Tainara", "Maria", "Marcinho",
         "Keila", "Samuel", "Sidney", "Pino","Felipe Barbosa","Thais","Amanda",
-        "Simara", "Ailton", "Neli", "Roberto", "Diego","Priscila","Massaro","Carmen","Rodolfo","Jose","Roberto","Edson"
+        "Simara", "Ailton", "Neli", "Roberto", "Diego","Priscila","Massaru","Carmen","Rodolfo","Jose","Rogerio","Edson"
     ];
 
     const stmtInsertUser = db.prepare("INSERT INTO users (name) VALUES (?)");
