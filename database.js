@@ -12,7 +12,7 @@ db.serialize(() => {
        "Fabio", "Leticia", "Valeria", "Paulo", "Bruno",
         "Adriana", "Ademir", "Vinicius", "Felipe", "Neusa",
         "Angelica", "Tainara", "Maria", "Marcinho",
-        "Keila", "Samuel", "Sidney", "Pino","Felipe Barbosa","Thais","Amanda",
+        "Keila", "Samuel", "Sidney", "Pino","Felipe Barbosa","Thais","Amanda","Naldo","naldo","angelica",
         "Simara", "Ailton", "Neli", "Roberto", "Diego","Priscila","Massaru","Carmen","Rodolfo","Jose","Rogerio","Edson"
     ];
 
